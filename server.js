@@ -8,15 +8,19 @@ const server = http.createServer((req, res) => {
     res.end(content, "utf-8");
   }
 
-  fs.readFile("./" + req.url, function (error, content) {
-    if (error) {
-      fs.readFile("./404.html", function (error, errorContent) {
-        setContent(errorContent);
-      });
-    } else {
-      setContent(content);
-    }
-  });
+  if (req.method === "GET") {
+    fs.readFile("./" + req.url, function (error, content) {
+      if (error) {
+        fs.readFile("./404.html", function (error, errorContent) {
+          setContent(errorContent);
+        });
+      } else {
+        setContent(content);
+      }
+    });
+  } else {
+    setContent('<body> <h1> La solictud no es soportada, para mayor informacion puedes dar click <a href="https://riptutorial.com/http/example/30553/http-0-9">aca</a></h1> </body>')
+  }
 });
 
 server.listen(80, "localhost", () => {
