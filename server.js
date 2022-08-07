@@ -23,6 +23,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(80, "localhost", () => {
+server.listen((process.env.PORT || 80), "localhost", () => {
   console.log(`Server is running`);
 });
