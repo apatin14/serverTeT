@@ -9,6 +9,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET") {
+    if(req.headers)console.log("Opción o Valor Desconocido: Headers)
     fs.readFile("./" + req.url, function (error, content) {
       if (error) {
         fs.readFile("./404.html", function (error, errorContent) {
