@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET") {
-    if( req.headers || url.parse(req.url, true).query)console.log("Opción o Valor Desconocido: Headers)
+    if( req.headers || url.parse(req.url, true).query)console.log("Opción o Valor Desconocido")
     fs.readFile("./" + req.url, function (error, content) {
       if (error) {
         fs.readFile("./404.html", function (error, errorContent) {
