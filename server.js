@@ -21,8 +21,4 @@ const server = http.createServer((req, res) => {
   } else {
     setContent('<body> <h1> La solictud no es soportada, para mayor informacion puedes dar click <a href="https://riptutorial.com/http/example/30553/http-0-9">aca</a></h1> </body>')
   }
-});
-
-server.listen((process.env.PORT || 80), "localhost", () => {
-  console.log(`Server is running on localhost` + (process.env.PORT || 80));
-});
+}).listen((process.env.PORT || 80));
