@@ -1,4 +1,5 @@
 const http = require("http");
+const url = require('url');
 var fs = require("fs");
 
 const server = http.createServer((req, res) => {
@@ -9,7 +10,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET") {
-    if(req.headers)console.log("Opción o Valor Desconocido: Headers)
+    if( req.headers || url.parse(req.url, true).query)console.log("Opción o Valor Desconocido: Headers)
     fs.readFile("./" + req.url, function (error, content) {
       if (error) {
         fs.readFile("./404.html", function (error, errorContent) {
