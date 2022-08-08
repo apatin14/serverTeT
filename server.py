@@ -1,10 +1,10 @@
-from email import message
 import socket
 import re
 import magic
+import os
 
 
-host, port, header, response = '127.0.0.1', 8888, "", ""
+host, port, header, response = '127.0.0.1', os.getenv('PORT'), "", ""
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
