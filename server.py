@@ -4,7 +4,7 @@ import magic
 import os
 
 
-host, port, header, response = '127.0.0.1', int(os.environ(['PORT'])), "", ""
+host, port, header, response = '127.0.0.1', int(os.getenv('PORT')), "", ""
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
