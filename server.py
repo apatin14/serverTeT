@@ -8,7 +8,7 @@ host, port, header, response = '127.0.0.1', os.getenv('PORT'), "", ""
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-serversocket.bind((host, port))
+serversocket.bind((host, int(port)))
 serversocket.listen(1)
 
 print('Conection alive on: ', port)
